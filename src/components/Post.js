@@ -15,10 +15,18 @@ import React, { useState } from 'react'
 export default function Post(props, ContadorLikes) {
 
   const likePost = props.post.like;
+  const pupu = false;
+
+  const [cantidadLikes, setLikes] = useState(likePost);
 
 
   function likear(){
+    setLikes(cantidadLikes + 1);
     ContadorLikes();
+
+    if(setLikes>10){
+      Popu = true;
+    }
   }
 
 
@@ -27,7 +35,7 @@ export default function Post(props, ContadorLikes) {
       <h3>{props.post.titulo}</h3>
       <p>{props.post.texto}</p>
       <button onClick={likear}>Like</button>
-      <h5>{likePost}</h5>
+      <h5> Popu ? "Más de 10 likes" : {likePost}</h5>
     </div>
   )
 }
